@@ -1,4 +1,5 @@
 import java.lang.annotation.ElementType;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements MyList<E> {
@@ -29,6 +30,14 @@ public class MyLinkedList<E> implements MyList<E> {
         end = new ListNode<>(null,null,prev);
         prev.setNext(end);
         size++;
+    }
+
+    public ListNode<E> getStart() {
+        return start;
+    }
+
+    public ListNode<E> getEnd() {
+        return end;
     }
 
     @Override
@@ -80,39 +89,8 @@ public class MyLinkedList<E> implements MyList<E> {
         return true;
     }
 
-    private class ListNode<E> {
-        E value;
-        ListNode<E> next;
-        ListNode<E> previous;
-
-        public ListNode(E vallue , ListNode<E> next, ListNode<E> previous){
-            this.value = vallue;
-            this.next = next;
-            this.previous = previous;
-        }
-
-        public E getValue() {
-            return value;
-        }
-
-        public ListNode<E> getNext() {
-            return next;
-        }
-
-        public ListNode<E> getPrevious() {
-            return previous;
-        }
-
-        public void setValue(E value) {
-            this.value = value;
-        }
-
-        public void setNext(ListNode<E> next) {
-            this.next = next;
-        }
-
-        public void setPrevious(ListNode<E> previous) {
-            this.previous = previous;
-        }
+    @Override
+    public Iterator<E> iterator() {
+        return new MyIterator<E>(this);
     }
 }

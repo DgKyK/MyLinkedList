@@ -1,4 +1,4 @@
-public interface MyList<E> {
+public interface MyList<E> extends Iterable<E> {
     void insertFirst(E element);
     void insertLast(E element);
     boolean search(E element);
