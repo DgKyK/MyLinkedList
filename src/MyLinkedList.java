@@ -73,20 +73,12 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean deleteFirst() {
-        ListNode<E> tempNode = start;
-        start = tempNode.getNext();
-        start.setPrevious(null);
-        size--;
-        return true;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean deleteLast() {
-        ListNode<E> tempNode = end;
-        end = tempNode.getPrevious();
-        end.setNext(null);
-        size--;
-        return true;
+        throw new UnsupportedOperationException();
     }
 
     @Override
